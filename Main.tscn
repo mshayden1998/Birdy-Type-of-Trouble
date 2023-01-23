@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://elements/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Main.gd" type="Script" id=2]
+[ext_resource path="res://interface/PauseMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/InGame.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 128, 672 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "bird_reveal"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -64, 672 ), Vector2( 128, 672 ) ]
+}
+
+[node name="Main" type="Node"]
+script = ExtResource( 2 )
+
+[node name="InterfaceLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="InterfaceLayer" instance=ExtResource( 3 )]
+pause_mode = 2
+
+[node name="InGame" parent="InterfaceLayer" instance=ExtResource( 4 )]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/bird_reveal = SubResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 128, 672 )
+
+[node name="PipeSpawnner" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="scored" from="Player" to="InterfaceLayer/InGame" method="_on_Player_scored"]
+[connection signal="timeout" from="PipeSpawnner" to="." method="_on_PipeSpawnner_timeout"]

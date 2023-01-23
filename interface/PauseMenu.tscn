@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://interface/theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/pause_btn_sprite.png" type="Texture" id=2]
+[ext_resource path="res://interface/PauseMenu.gd" type="Script" id=3]
+
+[node name="PauseMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Resume" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -191.5
+margin_top = -40.5
+margin_right = 191.5
+margin_bottom = 40.5
+text = "BTN_RESUME"
+
+[node name="Pause" type="Button" parent="."]
+margin_right = 159.0
+margin_bottom = 119.0
+icon = ExtResource( 2 )
+flat = true
+icon_align = 1
+expand_icon = true
+
+[connection signal="pressed" from="Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="Pause" to="." method="_on_Pause_pressed"]
