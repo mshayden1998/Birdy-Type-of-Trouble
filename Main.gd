@@ -8,6 +8,7 @@ const VISUAL_LIMIT = 15
 
 func _ready():
 	$AnimationPlayer.play("bird_reveal")
+	$TestSprite.visible = false
 
 
 func _on_PipeSpawnner_timeout():

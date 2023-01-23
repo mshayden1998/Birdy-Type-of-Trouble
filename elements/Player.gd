@@ -23,6 +23,7 @@ func _physics_process(_delta):
 func _input(event):
 	if event is InputEventScreenTouch:
 		print("touched anywere!")
+		get_parent().get_node("TestSprite").visible = true
 
 
 func get_input():
