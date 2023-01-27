@@ -7,28 +7,12 @@ const VISUAL_LIMIT = 220
 
 
 func _ready():
-	# Initiates the intro anim
+	# Initiates the intro anim.
 	$AnimationPlayer.play("bird_reveal")
-	
-	# Settings stuff
-	var config = ConfigFile.new()
-
-	# Load data from a file.
-	var err = config.load("user://game_settings.cfg")
-
-	# If the file didn't load, ignore it.
-	if err != OK:
-		return
-
-	# Iterate over all sections.
-	for player in config.get_sections():
-		# Fetch the data for each section.
-		var difficulty = config.get_value(player, "difficulty")
-		print(difficulty)
-		$PipeSpawnner.wait_time = difficulty
 
 
 func _on_PipeSpawnner_timeout():
+	# Spawns a new pipe every timeout.
 	var p = Pipe.instance()
 	p.position = Vector2(
 		ss.x + ERROR_MARGIN,
@@ -39,16 +23,20 @@ func _on_PipeSpawnner_timeout():
 
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
+	# After intro animation ends, player takes the action.
 	$Player.set_physics_process(true)
 
 
 func _on_Player_hit():
-	var player = $Player
 	$PipeSpawnner.stop()
+	# Gets player object and stops player's control.
+	var player = $Player
 	player.set_physics_process(false)
+	# Gets all the pipes and stops then.
 	var current_pipes = $PipeSpawnner.get_children()
 	for p in current_pipes:
 		p.set_process(false)
+	# Waits three seconds to change to GameOverScreen
 	yield(get_tree().create_timer(3), "timeout")
 	set_best_score(player.current_score)
 	if get_tree().change_scene("res://interface/GameOverScreen.tscn") != OK:

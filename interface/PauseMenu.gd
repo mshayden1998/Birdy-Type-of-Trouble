@@ -3,6 +3,7 @@ extends Control
 
 func _ready():
 	$Resume.visible = false
+	$Panel.visible = false
 
 
 func _input(_event):
@@ -21,4 +22,5 @@ func _on_Resume_pressed():
 func pause_toggle():
 	var new_pause_state = not get_tree().paused
 	get_tree().paused = new_pause_state
+	$Panel.visible = new_pause_state
 	$Resume.visible = new_pause_state
