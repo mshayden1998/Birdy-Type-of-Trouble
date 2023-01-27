@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://interface/theme.tres" type="Theme" id=1]
+[ext_resource path="res://interface/GameOverScreen.gd" type="Script" id=2]
+
+[node name="GameOverScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 64.0
+margin_top = 512.0
+margin_right = -64.0
+
+[node name="GameOver" type="Label" parent="VBoxContainer"]
+margin_right = 592.0
+margin_bottom = 75.0
+text = "Game over!"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+
+[node name="ScoreInfo" type="Label" parent="VBoxContainer"]
+margin_top = 79.0
+margin_right = 592.0
+margin_bottom = 154.0
+text = "<message in script>"
+autowrap = true
+
+[node name="Restart" type="Button" parent="VBoxContainer"]
+margin_top = 158.0
+margin_right = 592.0
+margin_bottom = 249.0
+text = "BTN_RESTART"
+
+[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_Restart_pressed"]

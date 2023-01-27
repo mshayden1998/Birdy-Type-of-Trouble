@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://interface/theme.tres" type="Theme" id=1]
+[ext_resource path="res://interface/MainMenu.gd" type="Script" id=2]
 
 [node name="MainMenu" type="Control"]
 anchor_left = 0.5
@@ -12,14 +13,15 @@ margin_top = -640.0
 margin_right = 360.0
 margin_bottom = 640.0
 theme = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="Instructions" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -219.0
-margin_top = 119.0
-margin_right = 261.0
-margin_bottom = 182.0
+margin_left = -270.0
+margin_top = 510.0
+margin_right = 270.0
+margin_bottom = 663.0
 text = "LAB_INSTRUCTIONS"
 autowrap = true
 
@@ -28,11 +30,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -264.0
-margin_top = -237.0
-margin_right = 280.0
-margin_bottom = -174.0
-text = "GAME_TITLE"
+margin_left = -300.0
+margin_top = -400.0
+margin_right = 300.0
+margin_bottom = -325.0
+text = "Birdy Type of Trouble"
 align = 1
 autowrap = true
 
@@ -40,10 +42,32 @@ autowrap = true
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 30.0
 margin_top = -515.0
+margin_right = -30.0
 
 [node name="BestScore" type="Label" parent="VBoxContainer"]
-margin_right = 720.0
+visible = false
+margin_right = 660.0
 margin_bottom = 75.0
 text = "LAB_BEST_SCORE"
 autowrap = true
+
+[node name="DifficultyInfo" type="Label" parent="VBoxContainer"]
+visible = false
+margin_right = 660.0
+margin_bottom = 75.0
+text = "LAB_DIFFICULTY"
+
+[node name="Difficulty" type="Button" parent="VBoxContainer"]
+visible = false
+margin_right = 660.0
+margin_bottom = 91.0
+text = "BTN_NORMAL"
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+margin_right = 660.0
+margin_bottom = 91.0
+text = "BTN_PLAY"
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]

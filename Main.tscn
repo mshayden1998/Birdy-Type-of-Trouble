@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://elements/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
 [ext_resource path="res://interface/PauseMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/InGame.tscn" type="PackedScene" id=4]
-[ext_resource path="res://icon.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -19,6 +18,30 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 128, 672 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Player:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -39,7 +62,12 @@ tracks/0/keys = {
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
 [node name="InterfaceLayer" type="CanvasLayer" parent="."]
+layer = 100
 
 [node name="PauseMenu" parent="InterfaceLayer" instance=ExtResource( 3 )]
 pause_mode = 2
@@ -54,13 +82,10 @@ anims/bird_reveal = SubResource( 2 )
 position = Vector2( 128, 672 )
 
 [node name="PipeSpawnner" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 2.0
 autostart = true
 
-[node name="TestSprite" type="Sprite" parent="."]
-position = Vector2( 355, 970 )
-texture = ExtResource( 5 )
-
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="scored" from="Player" to="InterfaceLayer/InGame" method="_on_Player_scored"]
 [connection signal="timeout" from="PipeSpawnner" to="." method="_on_PipeSpawnner_timeout"]

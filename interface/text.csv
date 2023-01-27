@@ -1,5 +1,11 @@
 key,en,pt_BR
-GAME_TITLE,"Birdy Type of Trouble","Problemas Passarísticos"
+#MainMenu scene
 LAB_INSTRUCTIONS,"Touch the screen to flap!","Toque na tela para bater asas!"
-LAB_BEST_SCORE,"Your best score:","Sua melhor pontuação:"
+BTN_PLAY,"Play","Jogar"
+
+#GameOverScreen scene
+BTN_RESTART,"Restart","Recomeçar"
+LAB_BEST_SCORE,"Best score:","Melhor pontuação:"
+
+#PauseMenu screen
 BTN_RESUME,"Resume","Continuar"
