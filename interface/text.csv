@@ -2,5 +2,6 @@ key,en,pt_BR
 LAB_INSTRUCTIONS,"Touch the screen to flap!","Toque na tela para bater asas!"
 BTN_PLAY,"Play","Jogar"
 BTN_RESTART,"Restart","Recomeçar"
-LAB_BEST_SCORE,"Best score:","Melhor pontuação:"
+LAB_BEST_SCORE,"Best score","Melhor pontuação"
+LAB_SCORE,"Score","Pontuação"
 BTN_RESUME,"Resume","Continuar"

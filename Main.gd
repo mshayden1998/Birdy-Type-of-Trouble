@@ -43,19 +43,23 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 
 
 func _on_Player_hit():
+	var player = $Player
 	$PipeSpawnner.stop()
-	$Player.set_physics_process(false)
+	player.set_physics_process(false)
 	var current_pipes = $PipeSpawnner.get_children()
 	for p in current_pipes:
 		p.set_process(false)
 	yield(get_tree().create_timer(3), "timeout")
-	set_best_score($Player.current_score)
+	set_best_score(player.current_score)
 	if get_tree().change_scene("res://interface/GameOverScreen.tscn") != OK:
 		print("An unexpected error occured when trying to load GameOverScreen scene")
 
 
-func set_best_score(best_score : int):
+func set_best_score(current_score : int):
 	var save_file = File.new()
-	save_file.open("user://save_game.dat", File.WRITE)
-	save_file.store_string(str(best_score))
+	var best_score = save_file.open("user://save_game.dat", File.READ)
+	if best_score < current_score:
+		save_file.open("user://save_game.dat", File.WRITE)
+		best_score = current_score
+		save_file.store_string(str(best_score))
 	save_file.close()
