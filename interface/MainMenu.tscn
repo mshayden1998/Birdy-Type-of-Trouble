@@ -15,6 +15,10 @@ margin_bottom = 640.0
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
 [node name="Instructions" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
@@ -42,9 +46,9 @@ autowrap = true
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 30.0
+margin_left = 60.0
 margin_top = -515.0
-margin_right = -30.0
+margin_right = -60.0
 
 [node name="BestScore" type="Label" parent="VBoxContainer"]
 visible = false
@@ -66,7 +70,7 @@ margin_bottom = 91.0
 text = "BTN_NORMAL"
 
 [node name="Play" type="Button" parent="VBoxContainer"]
-margin_right = 660.0
+margin_right = 600.0
 margin_bottom = 91.0
 text = "BTN_PLAY"
 
