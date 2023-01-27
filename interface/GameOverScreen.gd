@@ -1,7 +1,5 @@
 extends Control
 
-onready var lab_score_info = $VBoxContainer/ScoreInfo
-
 
 func _ready():
 	var best_score = 0

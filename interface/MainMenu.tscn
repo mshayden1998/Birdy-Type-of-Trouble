@@ -21,12 +21,15 @@ anchor_bottom = 1.0
 
 [node name="Instructions" type="Label" parent="."]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 margin_left = -270.0
-margin_top = 510.0
+margin_top = -76.5
 margin_right = 270.0
-margin_bottom = 663.0
+margin_bottom = 76.5
 text = "LAB_INSTRUCTIONS"
+align = 1
 autowrap = true
 
 [node name="Title" type="Label" parent="."]
@@ -42,36 +45,11 @@ text = "Birdy Type of Trouble"
 align = 1
 autowrap = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Play" type="Button" parent="."]
 margin_left = 60.0
-margin_top = -515.0
-margin_right = -60.0
-
-[node name="BestScore" type="Label" parent="VBoxContainer"]
-visible = false
+margin_top = 765.0
 margin_right = 660.0
-margin_bottom = 75.0
-text = "LAB_BEST_SCORE"
-autowrap = true
-
-[node name="DifficultyInfo" type="Label" parent="VBoxContainer"]
-visible = false
-margin_right = 660.0
-margin_bottom = 75.0
-text = "LAB_DIFFICULTY"
-
-[node name="Difficulty" type="Button" parent="VBoxContainer"]
-visible = false
-margin_right = 660.0
-margin_bottom = 91.0
-text = "BTN_NORMAL"
-
-[node name="Play" type="Button" parent="VBoxContainer"]
-margin_right = 600.0
-margin_bottom = 91.0
+margin_bottom = 829.0
 text = "BTN_PLAY"
 
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
