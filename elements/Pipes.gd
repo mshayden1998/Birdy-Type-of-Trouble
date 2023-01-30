@@ -1,11 +1,14 @@
 extends Area2D
 
 var player : Object
-const MARGIN = 30
+const MARGIN = 100
+const SPEED = 350
 
 
 func _process(delta):
-	position.x -= 200 * delta
+	# Moves the pipe to the left.
+	position.x -= SPEED * delta
+	# Destroys the pipe if it's out of boundaries.
 	if position.x < -MARGIN:
 		queue_free()
 

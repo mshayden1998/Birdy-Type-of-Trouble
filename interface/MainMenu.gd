@@ -13,3 +13,13 @@ func _ready():
 func _on_Play_pressed() -> void:
 	if get_tree().change_scene("res://Main.tscn") != OK:
 		print("An unexpected error occured when trying to load Main scene")
+
+
+func _on_ScoreBtn_pressed():
+	if get_tree().change_scene("res://interface/ScorePage.tscn") != OK:
+		print("An unexpected error occured when trying to load ScorePage scene")
+
+
+func _on_AboutBtn_pressed():
+	if get_tree().change_scene("res://interface/AboutPage.tscn") != OK:
+		print("An unexpected error occured when trying to load AboutPage scene")

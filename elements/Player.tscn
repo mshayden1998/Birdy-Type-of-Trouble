@@ -16,7 +16,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 32.0
+radius = 44.0454
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 0
@@ -24,12 +24,14 @@ script = ExtResource( 1 )
 
 [node name="Body" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -19 )
-scale = Vector2( 0.34081, 0.34081 )
+scale = Vector2( 0.485131, 0.485131 )
 frames = SubResource( 5 )
 animation = "flying"
+frame = 1
 playing = true
 
 [node name="BodyColl" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 
 [node name="ScoreSFX" type="AudioStreamPlayer" parent="."]

@@ -2,13 +2,15 @@ extends Node
 
 export (PackedScene) var Pipe = preload("res://elements/Pipes.tscn")
 onready var ss = get_viewport().get_visible_rect().size
-const ERROR_MARGIN = 30
+onready var pipe_spawn = $PipeSpawnner
+const ERROR_MARGIN = 80
 const VISUAL_LIMIT = 220
 
 
 func _ready():
 	# Initiates the intro anim.
 	$AnimationPlayer.play("bird_reveal")
+	$InterfaceLayer.visible = true
 
 
 func _on_PipeSpawnner_timeout():
@@ -19,7 +21,7 @@ func _on_PipeSpawnner_timeout():
 		rand_range(VISUAL_LIMIT, ss.y - VISUAL_LIMIT)
 	)
 	p.player = get_node("Player")
-	$PipeSpawnner.add_child(p)
+	pipe_spawn.add_child(p)
 
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
@@ -28,12 +30,12 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 
 
 func _on_Player_hit():
-	$PipeSpawnner.stop()
+	pipe_spawn.stop()
 	# Gets player object and stops player's control.
 	var player = $Player
 	player.set_physics_process(false)
 	# Gets all the pipes and stops then.
-	var current_pipes = $PipeSpawnner.get_children()
+	var current_pipes = pipe_spawn.get_children()
 	for p in current_pipes:
 		p.set_process(false)
 	# Waits three seconds to change to GameOverScreen

@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var velocity := Vector2.ZERO
 var current_score := 0
-const IMPULSE := 1000
+const IMPULSE := 1300
 const GRAVITY := 50
 
 signal scored(current_score)

@@ -1,55 +1,65 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://interface/theme.tres" type="Theme" id=1]
+[ext_resource path="res://interface/Theme Elements/Default.theme" type="Theme" id=1]
 [ext_resource path="res://interface/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://interface/Theme Elements/Medium Text.tres" type="DynamicFont" id=3]
+[ext_resource path="res://interface/Theme Elements/Big Text.tres" type="DynamicFont" id=4]
 
 [node name="MainMenu" type="Control"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -360.0
-margin_top = -640.0
-margin_right = 360.0
-margin_bottom = 640.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Background" type="Panel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-
-[node name="Instructions" type="Label" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -270.0
-margin_top = -76.5
-margin_right = 270.0
-margin_bottom = 76.5
-text = "LAB_INSTRUCTIONS"
-align = 1
-autowrap = true
 
 [node name="Title" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -300.0
-margin_top = -400.0
-margin_right = 300.0
-margin_bottom = -325.0
-text = "Birdy Type of Trouble"
+margin_left = -480.0
+margin_top = -480.0
+margin_right = 480.0
+margin_bottom = -305.0
+custom_fonts/font = ExtResource( 4 )
+text = "Flappy Bird"
 align = 1
 autowrap = true
 
-[node name="Play" type="Button" parent="."]
-margin_left = 60.0
-margin_top = 765.0
-margin_right = 660.0
-margin_bottom = 829.0
+[node name="PlayBtn" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -450.0
+margin_top = 60.0
+margin_right = 450.0
+margin_bottom = 200.0
+custom_fonts/font = ExtResource( 4 )
 text = "BTN_PLAY"
+clip_text = true
 
-[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
+[node name="ScoreBtn" type="Button" parent="."]
+margin_left = 540.0
+margin_top = 1230.0
+margin_right = 990.0
+margin_bottom = 1380.0
+custom_fonts/font = ExtResource( 3 )
+text = "BTN_SCORE"
+clip_text = true
+
+[node name="AboutBtn" type="Button" parent="."]
+margin_left = 90.0
+margin_top = 1230.0
+margin_right = 510.0
+margin_bottom = 1380.0
+custom_fonts/font = ExtResource( 3 )
+text = "BTN_ABOUT"
+clip_text = true
+
+[connection signal="pressed" from="PlayBtn" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="ScoreBtn" to="." method="_on_ScoreBtn_pressed"]
+[connection signal="pressed" from="AboutBtn" to="." method="_on_AboutBtn_pressed"]

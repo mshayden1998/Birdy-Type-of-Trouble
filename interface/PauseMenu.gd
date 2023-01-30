@@ -1,9 +1,12 @@
 extends Control
 
 
+
 func _ready():
-	$Resume.visible = false
 	$Panel.visible = false
+	$ResumeBtn.visible = false
+	$ExitBtn.visible = false
+	$RestartBtn.visible = false
 
 
 func _input(_event):
@@ -23,4 +26,6 @@ func pause_toggle():
 	var new_pause_state = not get_tree().paused
 	get_tree().paused = new_pause_state
 	$Panel.visible = new_pause_state
-	$Resume.visible = new_pause_state
+	$ResumeBtn.visible = new_pause_state
+	$ExitBtn.visible = new_pause_state
+	$RestartBtn.visible = new_pause_state
