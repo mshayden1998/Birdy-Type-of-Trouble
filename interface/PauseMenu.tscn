@@ -56,5 +56,13 @@ margin_right = 953.0
 margin_bottom = 1500.0
 text = "BTN_RESTART"
 
+[node name="CurrentScoreInfo" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 240.0
+margin_bottom = 299.0
+text = "LAB_CURRENT_SCORE"
+align = 1
+uppercase = true
+
 [connection signal="pressed" from="Pause" to="." method="_on_Pause_pressed"]
 [connection signal="pressed" from="ResumeBtn" to="." method="_on_Resume_pressed"]

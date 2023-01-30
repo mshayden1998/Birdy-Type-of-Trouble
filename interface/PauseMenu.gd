@@ -7,6 +7,7 @@ func _ready():
 	$ResumeBtn.visible = false
 	$ExitBtn.visible = false
 	$RestartBtn.visible = false
+	$CurrentScoreInfo.visible = false
 
 
 func _input(_event):
@@ -29,3 +30,4 @@ func pause_toggle():
 	$ResumeBtn.visible = new_pause_state
 	$ExitBtn.visible = new_pause_state
 	$RestartBtn.visible = new_pause_state
+	$CurrentScoreInfo.visible = new_pause_state
