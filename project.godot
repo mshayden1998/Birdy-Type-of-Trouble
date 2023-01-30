@@ -14,6 +14,10 @@ config/name="Birdy Type of Trouble"
 run/main_scene="res://interface/MainMenu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Global.tscn"
+
 [display]
 
 window/size/width=1080

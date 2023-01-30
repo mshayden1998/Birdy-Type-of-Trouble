@@ -59,14 +59,14 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "BestScore"
 align = 1
 
-[node name="ScoreInfo" type="Label" parent="VBoxContainer"]
+[node name="CurrentScoreInfo" type="Label" parent="VBoxContainer"]
 margin_top = 126.0
 margin_right = 840.0
 margin_bottom = 185.0
-text = "LAB_SCORE"
+text = "LAB_CURRENT_SCORE"
 align = 1
 
-[node name="Score" type="Label" parent="VBoxContainer"]
+[node name="CurrentScore" type="Label" parent="VBoxContainer"]
 margin_top = 189.0
 margin_right = 840.0
 margin_bottom = 248.0

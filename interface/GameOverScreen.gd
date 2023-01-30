@@ -2,11 +2,10 @@ extends Control
 
 
 func _ready():
-	var best_score = 0
 	var score = 0
 	# Set label text with best score
-	$VBoxContainer/BestScore.set_text(str(best_score))
-	$VBoxContainer/Score.set_text(str(score))
+	$VBoxContainer/BestScore.set_text(str(Global.load_best_score()))
+	$VBoxContainer/CurrentScore.set_text(str(score))
 
 
 func _on_Restart_pressed():
