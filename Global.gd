@@ -9,7 +9,7 @@ func _ready():
 		best_score = loaded_score
 	else:
 		save_best_score(0)
-	print("User's best score:", best_score)
+	print("User's best score: ", best_score)
 
 
 func save_best_score(score):
