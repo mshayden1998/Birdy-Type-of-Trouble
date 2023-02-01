@@ -16,7 +16,6 @@ theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Background" type="Panel" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -54,23 +53,23 @@ autowrap = true
 [node name="BestScore" type="Label" parent="VBoxContainer"]
 margin_top = 63.0
 margin_right = 840.0
-margin_bottom = 122.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
+margin_bottom = 238.0
+custom_fonts/font = ExtResource( 4 )
 text = "BestScore"
 align = 1
 
 [node name="CurrentScoreInfo" type="Label" parent="VBoxContainer"]
-margin_top = 126.0
+margin_top = 242.0
 margin_right = 840.0
-margin_bottom = 185.0
+margin_bottom = 301.0
 text = "LAB_CURRENT_SCORE"
 align = 1
 
 [node name="CurrentScore" type="Label" parent="VBoxContainer"]
-margin_top = 189.0
+margin_top = 305.0
 margin_right = 840.0
-margin_bottom = 248.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
+margin_bottom = 480.0
+custom_fonts/font = ExtResource( 4 )
 text = "Score"
 align = 1
 

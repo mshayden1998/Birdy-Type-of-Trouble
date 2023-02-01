@@ -1,0 +1,10 @@
+extends Control
+
+
+func _ready():
+	pass
+
+
+func _on_GoBackBtn_pressed():
+	if get_tree().change_scene("res://interface/MainMenu.tscn") != OK:
+		print("An unexpected error occured when trying to load MainMenu scene")
