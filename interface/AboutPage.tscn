@@ -58,8 +58,8 @@ margin_bottom = 123.0
 focus_mode = 2
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
-bbcode_text = "[url='https://marcsilden.itch.io/birdytypeoftrouble']RLAB_TEXT[/url]."
-text = "RLAB_TEXT."
+bbcode_text = "[url='https://marcsilden.itch.io/birdytypeoftrouble']Go to game's official itch.io page[/url]."
+text = "Go to game's official itch.io page."
 fit_content_height = true
 scroll_active = false
 selection_enabled = true

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://interface/Theme Elements/Default.theme" type="Theme" id=1]
 [ext_resource path="res://assets/pause_btn_sprite.png" type="Texture" id=2]
 [ext_resource path="res://interface/PauseMenu.gd" type="Script" id=3]
 [ext_resource path="res://interface/Theme Elements/Big Text.tres" type="DynamicFont" id=4]
+[ext_resource path="res://interface/Theme Elements/NormalButton_AlternativeColor.tres" type="StyleBox" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.27451 )
@@ -47,6 +48,7 @@ margin_left = 120.0
 margin_top = 1320.0
 margin_right = 480.0
 margin_bottom = 1500.0
+custom_styles/normal = ExtResource( 5 )
 text = "BTN_EXIT"
 
 [node name="RestartBtn" type="Button" parent="."]
@@ -54,6 +56,7 @@ margin_left = 540.0
 margin_top = 1320.0
 margin_right = 953.0
 margin_bottom = 1500.0
+custom_styles/normal = ExtResource( 5 )
 text = "BTN_RESTART"
 
 [node name="CurrentScoreInfo" type="Label" parent="."]
@@ -66,3 +69,5 @@ uppercase = true
 
 [connection signal="pressed" from="Pause" to="." method="_on_Pause_pressed"]
 [connection signal="pressed" from="ResumeBtn" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="ExitBtn" to="." method="_on_ExitBtn_pressed"]
+[connection signal="pressed" from="RestartBtn" to="." method="_on_RestartBtn_pressed"]

@@ -31,3 +31,14 @@ func pause_toggle():
 	$ExitBtn.visible = new_pause_state
 	$RestartBtn.visible = new_pause_state
 	$CurrentScoreInfo.visible = new_pause_state
+
+
+func _on_ExitBtn_pressed():
+	pause_toggle()
+	if get_tree().change_scene("res://interface/MainMenu.tscn") != OK:
+		print("Falha ao carregar a cena MainMenu.")
+
+
+func _on_RestartBtn_pressed():
+	pause_toggle()
+	get_tree().reload_current_scene()
