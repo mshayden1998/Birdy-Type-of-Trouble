@@ -2,7 +2,7 @@ extends Control
 
 
 func _ready():
-	$ScoreInfo.set_text(str(Global.load_best_score()))
+	pass
 
 
 func _on_GoBackBtn_pressed():

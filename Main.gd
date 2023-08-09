@@ -40,10 +40,6 @@ func _on_Player_hit():
 		p.set_process(false)
 	# Waits three seconds to change to GameOverScreen
 	yield(get_tree().create_timer(3), "timeout")
-	# Set player's new best score (if necessary)
-	if player.current_score > Global.load_best_score():
-		Global.save_best_score(player.current_score)
-	else:
-		pass
+	# Show game over screen.
 	if get_tree().change_scene("res://interface/GameOverScreen.tscn") != OK:
 		print("An unexpected error occured when trying to load GameOverScreen scene")
