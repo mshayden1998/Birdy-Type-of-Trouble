@@ -51,7 +51,7 @@ margin_top = 63.0
 margin_right = 840.0
 margin_bottom = 238.0
 custom_fonts/font = ExtResource( 4 )
-text = "BestScore"
+text = "0"
 align = 1
 
 [node name="CurrentScoreInfo" type="Label" parent="VBoxContainer"]
@@ -66,7 +66,7 @@ margin_top = 305.0
 margin_right = 840.0
 margin_bottom = 480.0
 custom_fonts/font = ExtResource( 4 )
-text = "Score"
+text = "0"
 align = 1
 
 [node name="Restart" type="Button" parent="."]

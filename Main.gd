@@ -1,38 +1,37 @@
 extends Node
 
-export (PackedScene) var Pipe = preload("res://elements/Pipes.tscn")
-onready var ss = get_viewport().get_visible_rect().size
-onready var pipe_spawn = $PipeSpawnner
-const ERROR_MARGIN = 80
-const VISUAL_LIMIT = 220
+export (PackedScene) var Pipes: PackedScene
+onready var player: KinematicBody2D = $Player
+onready var ss: Vector2 = get_viewport().get_visible_rect().size
+onready var pipe_spawn: Timer = $PipeSpawnner
+const ERROR_MARGIN:int = 80
+const VISUAL_LIMIT:int = 220
 
 
-func _ready():
+func _ready() -> void:
 	# Initiates the intro anim.
 	$AnimationPlayer.play("bird_reveal")
 	$InterfaceLayer.visible = true
 
 
-func _on_PipeSpawnner_timeout():
+func _on_PipeSpawnner_timeout() -> void:
 	# Spawns a new pipe every timeout.
-	var p = Pipe.instance()
+	var p = Pipes.instance()
 	p.position = Vector2(
 		ss.x + ERROR_MARGIN,
 		rand_range(VISUAL_LIMIT, ss.y - VISUAL_LIMIT)
 	)
-	p.player = get_node("Player")
 	pipe_spawn.add_child(p)
 
 
-func _on_AnimationPlayer_animation_finished(_anim_name):
+func _on_AnimationPlayer_animation_finished(_anim_name) -> void:
 	# After intro animation ends, player takes the action.
-	$Player.set_physics_process(true)
+	player.set_physics_process(true)
 
 
-func _on_Player_hit():
+func _on_Player_hit() -> void:
 	pipe_spawn.stop()
 	# Gets player object and stops player's control.
-	var player = $Player
 	player.set_physics_process(false)
 	# Gets all the pipes and stops then.
 	var current_pipes = pipe_spawn.get_children()

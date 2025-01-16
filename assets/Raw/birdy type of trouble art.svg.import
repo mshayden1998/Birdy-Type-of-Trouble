@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex"
+path="res://.import/birdy type of trouble art.svg-dfd958927e354b24a2a08f58c9a44d7f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.png"
-dest_files=[ "res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex" ]
+source_file="res://assets/Raw/birdy type of trouble art.svg"
+dest_files=[ "res://.import/birdy type of trouble art.svg-dfd958927e354b24a2a08f58c9a44d7f.stex" ]
 
 [params]
 

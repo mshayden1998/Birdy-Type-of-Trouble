@@ -12,10 +12,6 @@ anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
-[node name="Background" type="Panel" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
 [node name="Title" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -30,39 +26,49 @@ text = "Birdy Type of Trouble"
 align = 1
 autowrap = true
 
-[node name="PlayBtn" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -450.0
-margin_top = 60.0
-margin_right = 450.0
-margin_bottom = 200.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 20.0
+margin_top = 1062.0
+margin_right = 1060.0
+margin_bottom = 1429.0
+grow_horizontal = 2
+
+[node name="PlayBtn" type="Button" parent="VBoxContainer"]
+margin_right = 1040.0
+margin_bottom = 191.0
 custom_fonts/font = ExtResource( 4 )
 text = "BTN_PLAY"
 clip_text = true
 
-[node name="ScoreBtn" type="Button" parent="."]
-margin_left = 540.0
-margin_top = 1230.0
-margin_right = 990.0
-margin_bottom = 1380.0
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 195.0
+margin_right = 1040.0
+margin_bottom = 289.0
+alignment = 1
+
+[node name="ScoreBtn" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 168.0
+margin_right = 518.0
+margin_bottom = 94.0
 custom_fonts/font = ExtResource( 3 )
 custom_styles/normal = ExtResource( 5 )
 text = "BTN_SCORE"
-clip_text = true
 
-[node name="AboutBtn" type="Button" parent="."]
-margin_left = 90.0
-margin_top = 1230.0
-margin_right = 510.0
-margin_bottom = 1380.0
+[node name="AboutBtn" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 522.0
+margin_right = 871.0
+margin_bottom = 94.0
 custom_fonts/font = ExtResource( 3 )
 custom_styles/normal = ExtResource( 5 )
 text = "BTN_ABOUT"
-clip_text = true
 
-[connection signal="pressed" from="PlayBtn" to="." method="_on_Play_pressed"]
-[connection signal="pressed" from="ScoreBtn" to="." method="_on_ScoreBtn_pressed"]
-[connection signal="pressed" from="AboutBtn" to="." method="_on_AboutBtn_pressed"]
+[node name="ExitBtn" type="Button" parent="VBoxContainer"]
+margin_top = 293.0
+margin_right = 1040.0
+margin_bottom = 387.0
+text = "BTN_EXIT"
+
+[connection signal="pressed" from="VBoxContainer/PlayBtn" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ScoreBtn" to="." method="_on_ScoreBtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/AboutBtn" to="." method="_on_AboutBtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitBtn" to="." method="_on_ExitBtn_pressed"]
